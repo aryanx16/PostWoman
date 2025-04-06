@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
-import { div, head } from 'framer-motion/client';
 
 const Homepage = () => {
   const [headers, setheaders] = useState<{ key: string; value: string }[]>([])
+  const [url,seturl] = useState<string>("")
+  const [body, setbody] = useState<string>("")
+  const [method,setmethod] = useState<string>("GET")
+  const [response ,setresponse] = useState(null)
   const addheader = () => {
     setheaders([...headers, { key: "", value: "" }])
   }
@@ -11,19 +14,19 @@ const Homepage = () => {
     setheaders(headers.filter((_, i) => i !== index))
   }
   return (
-    <div className='bg-gray-200   min-h-screen pt-28'>
+    <div className='bg-gray-100   min-h-screen pt-28'>
       <Navbar />
       {/* main  */}
-      <div className='bg-gray-300 p-4 border border-gray-400 shadow-2xl min-h-96 text-black mx-auto max-w-4xl  rounded-md'>
+      <div className='bg-white p-4 border border-gray-400 shadow-2xl min-h-96 text-black mx-auto max-w-4xl  rounded-md'>
         {/* first line  url and method*/}
         <div className='flex gap-4 mb-4'>
           <div className='flex-grow'>
             <label htmlFor="" className=''>URL</label>
-            <input className='bg-gray-400 w-full rounded-md p-2 shadow-xl border' placeholder='Enter Url ' type="text" />
+            <input className='bg-gray-200 w-full rounded-md p-2 shadow-xl border' placeholder='Enter Url ' type="text" />
           </div>
           <div className=''>
             <label htmlFor="">Method</label>
-            <select name="" className='w-full p-2 bg-gray-400 rounded-md shadow-xl border' id="">
+            <select name="" className='w-full p-2 bg-gray-200 rounded-md shadow-xl border' id="">
 
               <option className='bg-gray-400 shadow-xl border' value="GET">GET</option>
             </select>
@@ -50,7 +53,7 @@ const Homepage = () => {
         {/* third line body */}
         <div>
           <div className='mb-2'>Body(JSON)</div>
-          <div><textarea name="" className='bg-gray-400 p-2 w-full h-28 rounded-md border shadow-xl' placeholder='Enter JSON Body(optional)' id=""></textarea></div>
+          <div><textarea name="" className='bg-neutral-200 p-2 w-full h-28 rounded-md border shadow-xl' placeholder='Enter JSON Body(optional)' id=""></textarea></div>
         </div>
         {/* fourth line  */}
         <div>
@@ -59,8 +62,27 @@ const Homepage = () => {
           </div>
         </div>
         {/* response */}
-        <div>
-          
+        <div className='mt-3 bg-gray-100'>
+          {/* main response container */}
+            <div className='border rounded-md border-gray-500 p-3'>
+              <div className='text-lg font-semibold'>Response</div>
+              <div>
+                <span>Status :</span>
+                <span> 300</span>
+              </div>
+              {/* headers */}
+              <div className=''>
+                <div>
+                Headers:
+                </div>
+                <div className='border bg-white p-3 border-gray-400 rounded-md'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident praesentium nostrum est nihil reiciendis illum, possimus labore optio nisi minus officia molestias?</div>
+              </div>
+              {/* body */}
+              <div>
+                <div>Body</div>
+                <div className='border bg-white p-3 border-gray-400 rounded-md'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident praesentium nostrum est nihil reiciendis illum, possimus labore optio nisi minus officia molestias?</div>
+              </div>
+            </div>
         </div>
       </div>
 
