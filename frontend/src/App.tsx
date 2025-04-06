@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import {BrowserRouter, Route, Routes} from 'react-router'
 import Home from "./pages/Home.tsx";
 import Homepage from "./pages/Homepage.tsx";
